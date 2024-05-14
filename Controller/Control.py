@@ -44,18 +44,28 @@ class Control:
 
                     elif orderstatus == "PENDING":
                         print("Reached at exchange end, awaiting execution")
-                        for chld in self.childs:
-                            self.RunThread(chld, ordr)
+                        if orderid not in self.master.ExecutedOrders:
+                            for chld in self.childs:
+                                self.RunThread(chld, ordr)
+                        else:
+                            for chld in self.childs:
+                                chld.ModifyOrder(ordr)
 
 
                     elif orderstatus == "REJECTED":
                         print("Rejected at exchange/broker’s end")
+                        #self.master.
+                        for chld in self.childs:
+                            chld.CancelOrder(indexoforder)
 
                     elif orderstatus == "CANCELLED":
                         print("Cancelled by user")
+                        for chld in self.childs:
+                            chld.CancelOrder(indexoforder)
 
                     elif orderstatus == "TRADED":
                         print("Executed")
+                        
 
                     elif orderstatus == "EXPIRED":
                         print("Validity of order is expired")

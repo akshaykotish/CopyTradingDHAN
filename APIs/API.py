@@ -41,14 +41,14 @@ class DhanAPI:
     
     def ModifyOrder(self,order_id,order_type,leg_name,quantity,price,trigger_price,disclosed_quantity,validity):
         res = self.dhan.modify_order(
-            order_id,
-            order_type,
-            leg_name,
-            quantity,
-            price,
-            trigger_price,
-            disclosed_quantity,
-            validity
+            order_id = order_id,
+            order_type = order_type,
+            leg_name = leg_name,
+            quantity = quantity,
+            price = price,
+            trigger_price = trigger_price,
+            disclosed_quantity = disclosed_quantity,
+            validity = validity
             )
 
         print(res)

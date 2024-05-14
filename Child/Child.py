@@ -31,6 +31,18 @@ class Child:
         if orderid not in self.ExecutedOrders:
             self.ExecutedOrders.append(orderid)
 
+    def ModifyOrder(self, data):
+        self.OrderResponse = self.DHANAPI.ModifyOrder(
+            order_id = data["orderId"],
+            order_type = data["orderType"],
+            leg_name = data["legName"],
+            quantity = data["quantity"],
+            price = data["price"],
+            trigger_price = data["triggerPrice"],
+            disclosed_quantity = data["disclosedQuantity"],
+            validity = data["validity"]
+        )
+
     def CancelOrder(self, orderIndex):
         orderid = self.ExecutedOrders[orderIndex]
         self.OrderResponse = self.DHANAPI.CancelOrder(orderid)
