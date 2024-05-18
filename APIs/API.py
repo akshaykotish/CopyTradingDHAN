@@ -37,7 +37,7 @@ class DhanAPI:
         )
 
         print(res)
-        return self.res
+        return res
     
     def ModifyOrder(self,order_id,order_type,leg_name,quantity,price,trigger_price,disclosed_quantity,validity):
         res = self.dhan.modify_order(
@@ -52,7 +52,7 @@ class DhanAPI:
             )
 
         print(res)
-        return self.res
+        return res
         
 
     def GetOrders(self):

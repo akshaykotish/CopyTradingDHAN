@@ -6,20 +6,22 @@ import time
 class Master:
     def __init__(self, clientId, APIToken):
         self.DHANAPI = DhanAPI(clientId, APIToken)
-        self.ExecutedOrders = []
+        self.PlacedOrders = []
         self.LastUpdate = []
+        self.PendingList = []
+
 
     def TrackOrders(self):
         self.OrderResponse = self.DHANAPI.GetOrders()
         return self.OrderResponse
     
     def GetOrderIndex(self, OrderID):
-        if OrderID not in self.ExecutedOrders:
+        if OrderID not in self.PlacedOrders:
             return -1
         else:
-            index = self.ExecutedOrders.index(OrderID)
+            index = self.PlacedOrders.index(OrderID)
             return index
 
     def RemoveIndexOrder(self, Index):
-        self.ExecutedOrders.pop(Index)
+        self.PlacedOrders.pop(Index)
 

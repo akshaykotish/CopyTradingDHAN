@@ -1,0 +1,7 @@
+from dhanhq import dhanhq
+
+dhan = dhanhq("1100995950","eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJkaGFuIiwicGFydG5lcklkIjoiIiwiZXhwIjoxNzE4NDQ1MjczLCJ0b2tlbkNvbnN1bWVyVHlwZSI6IlNFTEYiLCJ3ZWJob29rVXJsIjoiIiwiZGhhbkNsaWVudElkIjoiMTEwMDk5NTk1MCJ9.avaar8KwZXH6MqdAK4R290RXsJ0DYon1jjQGdF-UEXk4cdNL-79yACHD8bQFshEKAcMBxA4bw1gQCC3a-dRZkw")
+
+
+all_orders = dhan.get_order_list()
+print(all_orders)
