@@ -20,5 +20,6 @@ missing module named posix - imported by os (conditional, optional), shutil (con
 missing module named resource - imported by posix (top-level)
 missing module named _frozen_importlib_external - imported by importlib._bootstrap (delayed), importlib (optional), importlib.abc (optional)
 excluded module named _frozen_importlib - imported by importlib (optional), importlib.abc (optional)
+missing module named 'win32com.gen_py' - imported by win32com (conditional, optional)
 missing module named _posixsubprocess - imported by subprocess (conditional)
 missing module named fcntl - imported by subprocess (optional)

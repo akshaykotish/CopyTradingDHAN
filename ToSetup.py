@@ -1,7 +1,6 @@
 import os
 import sys
 import winreg as reg
-import sys
 import win32com.client
 
 

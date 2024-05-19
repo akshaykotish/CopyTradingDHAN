@@ -1,15 +1,15 @@
 # Copy Trading Software
 
-![Copy Trading Software Logo](https://example.com/logo.png)
+![Copy Trading Software Logo](./logo.png)
 
 Welcome to the Copy Trading Software repository! This software allows users to copy trades from expert traders automatically. It is built with Python and offers a simple interface for setting up and managing your copy trading activities.
 
 ## Features
 
-- **Automated Trading:** Automatically copy trades from expert traders.
-- **Real-Time Updates:** Get real-time updates and notifications on trade activities.
-- **User-Friendly Interface:** Simple and intuitive interface for easy setup and management.
-- **Customizable Settings:** Customize your trading preferences and risk management settings.
+- **Automated Trading:** Automatically copy trades from expert master trader.
+- **Real-Time Trade Execution:** Get real-time execution without facing any delay or legacy.
+- **Console based Interface:** automatic working system, runs on PC startup.
+- **Support Dhan Broker:** It supports Dhan broker for master and child accounts.
 
 ## Table of Contents
 
@@ -26,7 +26,7 @@ To get started with the Copy Trading Software, follow these steps:
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/yourusername/copy-trading-software.git
+    git clone https://github.com/akshaykotish/CopyTradingDHAN
     cd copy-trading-software
     ```
 
@@ -63,26 +63,27 @@ To get started with the Copy Trading Software, follow these steps:
 
 ### Screenshots
 
-![Dashboard](https://example.com/screenshot1.png)
+![Dashboard](./Img1.png)
 *Dashboard showing trade activities*
 
-![Settings](https://example.com/screenshot2.png)
+![Settings](./Img2.png)
 *Settings page to configure your preferences*
 
 ## Configuration
 
-To configure the Copy Trading Software, you need to create a `.env` file in the project root with the following content:
+To configure the Copy Trading Software, you need to modify Childs.csv file with master account API details and child accounts details with following content:
 
 ```ini
-API_KEY=your_api_key_here
-API_SECRET=your_api_secret_here
-TRADER_ID=expert_trader_id_here
-RISK_MANAGEMENT=conservative
+o	In the Childs.csv file, replace the following placeholders with your information:
+	Multiply: Enter the desired quantity multiplier for client orders (e.g., enter 2 to place double the quantity in child accounts).
+	Client Id: Replace the placeholder with your copied Dhan Client ID.
+	Client API: Replace the placeholder with your copied Dhan API key.
+ 
+o	Adding Child Accounts: The first row in Childs.csv represents your master trading account. You can add additional rows for unlimited child accounts where trades will be copied. Ensure each row has the Client ID, API, and desired quantity multiplier.
 ```
 
-- `API_KEY` and `API_SECRET`: Your trading platform's API key and secret.
-- `TRADER_ID`: The ID of the expert trader you want to copy trades from.
-- `RISK_MANAGEMENT`: Your risk management strategy (`conservative`, `moderate`, `aggressive`).
+- `API_KEY` and `Client ID`: Your trading platform's API key and Client ID.
+- `Multiply Quantity`: Enter the desired quantity multiplier for client orders (e.g., enter 2 to place double the quantity in child accounts).
 
 ## Contributing
 
