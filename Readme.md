@@ -63,10 +63,10 @@ To get started with the Copy Trading Software, follow these steps:
 
 ### Screenshots
 
-![Dashboard](./Img1.png)
+![Dashboard](./Img1.jpg)
 *Dashboard showing trade activities*
 
-![Settings](./Img2.png)
+![Settings](./Img2.jpg)
 *Settings page to configure your preferences*
 
 ## Configuration
@@ -96,7 +96,7 @@ We welcome contributions from the community! To contribute to the project, pleas
 2. **Clone your fork:**
 
     ```bash
-    git clone https://github.com/yourusername/copy-trading-software.git
+    git clone https://github.com/akshaykotish/CopyTradingDHAN
     ```
 
 3. **Create a new branch:**
@@ -130,5 +130,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 For any questions or support, feel free to open an issue or contact us at support@example.com.
 
 Happy trading!
-
-![Footer Logo](https://example.com/footer-logo.png)
