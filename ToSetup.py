@@ -2,7 +2,49 @@ import os
 import sys
 import winreg as reg
 import win32com.client
+import csv
+import ctypes
+import stat
+import zipfile
 
+def CreateExcelFile():
+    # Define the path for the folder and the file
+    folder_path = r'C:\CopyTrade'
+    file_path = os.path.join(folder_path, 'Childs.csv')
+
+
+    # Ensure the folder exists
+    os.makedirs(folder_path, exist_ok=True)
+    
+    set_folder_permissions(folder_path)
+
+    # Define the header and some sample data for the CSV file
+    header = ['ClientName', 'Multiply', 'ClientId', 'ClientAPI']
+    data = [
+        ['Master', 1, '12312345', 'neknvrdnjndfkml'],
+        ['Child 1', 1, '12312345', 'neknvrdnjndfkml'],
+    ]
+
+    # Check if the file already exists
+    file_exists = os.path.exists(file_path)
+
+    # Open the file in append mode if it exists, else create a new file
+    with open(file_path, mode='a' if file_exists else 'w', newline='') as file:
+        writer = csv.writer(file)
+        if not file_exists:  # Only write the header if creating a new file
+            writer.writerow(header)
+        writer.writerows(data)
+
+    print(f'CSV file created/updated at: {file_path}')
+
+def set_folder_permissions(folder_path):
+    try:
+        # Grant full control to everyone
+        os.chmod(folder_path, stat.S_IRWXU | stat.S_IRWXG | stat.S_IRWXO)
+        print(f'Permissions set for folder: {folder_path}')
+    except Exception as e:
+        print(f'Failed to set permissions for folder: {folder_path}. Error: {e}')
+        sys.exit(1)
 
 def add_to_startup(exe_path, exe_name):
     try:
@@ -72,6 +114,17 @@ def add_to_desktop(exe_path, shortcut_name):
         print("Add to desktop error")
 
 
+def unzip_file(zip_path, extract_to):
+    try:
+        with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+            zip_ref.extractall(extract_to)
+        print(f'Extracted {zip_path} to {extract_to}')
+    except Exception as e:
+        print(f'Failed to unzip file: {zip_path}. Error: {e}')
+        sys.exit(1)
+
+
+
 if __name__ == "__main__":
     # Ensure the script is running with administrator privileges
     if not os.path.exists('C:\\Windows\\System32\\cmd.exe'):
@@ -80,7 +133,16 @@ if __name__ == "__main__":
 
     # Define the executable name and path
     exe_name = "main"
-    exe_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dist', 'main.exe')
+    #exe_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dist', 'main.exe')
+    exe_path = r'C:\CopyTrade\main.exe'
+    
+    # Unzip a file to the CopyTrade directory
+    zip_file_path = r'./CopyTrading.zip'  # Change this to the path of your zip file
+    unzip_file(zip_file_path, r'C:\CopyTrade')
+
+    #create database csv file
+    CreateExcelFile()
+
 
     # Add the executable to startup
     add_to_startup(exe_path, exe_name)

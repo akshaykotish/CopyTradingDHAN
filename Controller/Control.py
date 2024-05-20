@@ -15,7 +15,7 @@ class Control:
         
 
     def LoadAPIsecrets(self):
-        file_path = "./Childs.csv"
+        file_path = 'C:\\CopyTrade\\Childs.csv'
         try:
             with open(file_path, mode='r', newline='') as file:
                 csv_reader = csv.reader(file)

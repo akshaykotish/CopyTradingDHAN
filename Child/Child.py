@@ -8,6 +8,17 @@ class Child:
         self.DHANAPI = DhanAPI(clientId, APIToken)
         self.PlacedOrders = []
 
+        
+    def LoadPrePlacedOrder(self):
+        m_res = self.DHANAPI.GetOrders()
+        for ordr in m_res["data"]:
+            #lastupdate = ordr["updateTime"]
+            orderid = ordr["orderId"]
+            #orderstatus = ordr["orderStatus"]
+
+            if orderid not in self.PlacedOrders:
+                self.PlacedOrders.append(orderid)
+
     def AddOrdersIndex(self, orderIndex):
         if orderIndex not in self.PlacedOrders:
             self.PlacedOrders.append(orderIndex)
